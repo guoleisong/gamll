@@ -1,12 +1,12 @@
 package com.gls.gmall.user.service.impl;
 
-import com.gls.gmall.user.bean.UmsMember;
-import com.gls.gmall.user.bean.UmsMemberReceiveAddress;
+import com.alibaba.dubbo.config.annotation.Service;
+import com.gls.gmall.bean.UmsMemberReceiveAddress;
+import com.gls.gmall.service.UserService;
+import com.gls.gmall.bean.UmsMember;
 import com.gls.gmall.user.mapper.UmsMemberReceiveAddressMapper;
 import com.gls.gmall.user.mapper.UserMapper;
-import com.gls.gmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public List<UmsMemberReceiveAddress> getMemberReceiveByMemberId(String memberId) {
 
         Example e = new Example(UmsMemberReceiveAddress.class);
-        e.createCriteria().andEqualTo("memberId",memberId);
+        e.createCriteria().andEqualTo("memberId", memberId);
 
         UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
         umsMemberReceiveAddress.setMemberId(memberId);
